@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aadhar_number: MyString
+  patient_name: MyString
+  patient_guardian_name: MyString
+  patient_address: MyString
+  patient_mobile_number: MyString
+  blood_group: MyString
+  doctor_name: MyString
+  hospital: MyString
+  clinic_name: MyString
+  disease_name: MyString
+  date_of_examine: 2024-09-04
+  date_of_admission: 2024-09-04
+  date_of_discharge: 2024-09-04
+  patient_age: 1
+  patient_gender: MyString
+
+two:
+  aadhar_number: MyString
+  patient_name: MyString
+  patient_guardian_name: MyString
+  patient_address: MyString
+  patient_mobile_number: MyString
+  blood_group: MyString
+  doctor_name: MyString
+  hospital: MyString
+  clinic_name: MyString
+  disease_name: MyString
+  date_of_examine: 2024-09-04
+  date_of_admission: 2024-09-04
+  date_of_discharge: 2024-09-04
+  patient_age: 1
+  patient_gender: MyString
