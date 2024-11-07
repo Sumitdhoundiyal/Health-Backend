@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_23_043648) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_07_103513) do
   create_table "appointments", force: :cascade do |t|
     t.integer "hospital_id", null: false
     t.integer "doctor_id", null: false
@@ -59,6 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_23_043648) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_patient_informations_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "patient_information_id", null: false
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_information_id"], name: "index_payments_on_patient_information_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_23_043648) do
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "hospitals"
   add_foreign_key "appointments", "patient_informations"
+  add_foreign_key "patient_informations", "users"
+  add_foreign_key "payments", "patient_informations"
 end

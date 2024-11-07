@@ -2,6 +2,7 @@ class Api::V1::Admin::HomeController < ApplicationController
 
   skip_before_action :verify_authenticity_token
   before_action :patient, only: [ :update, :show, :destory]
+  before_action :authorized
         def index
           @patient_information=PatientInformation.all
           render json: @patient_information
@@ -41,6 +42,17 @@ class Api::V1::Admin::HomeController < ApplicationController
           params.require(:patient_information).permit(:aadhar_number, :patient_name, :patient_guardian_name, :patient_address,
             :patient_mobile_number, :blood_group, :doctor_name, :hospital, :clinic_name, :disease_name, :date_of_examine,
             :date_of_admission, :date_of_discharge, :patient_age, :patient_gender)
+        end
+
+        def authorized
+          header = request.headers['Authorization']
+          token = header.split(' ')[1] if header
+          begin
+            decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)
+            @current_user = User.find(decoded[0]['user_id'])
+          rescue
+            render json: { error: 'Unauthorized' }, status: :unauthorized
+          end
         end
 
 

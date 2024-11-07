@@ -54,6 +54,7 @@ group :development, :test do
 end
 
 group :development do
+gem "pry"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -74,4 +75,5 @@ end
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'rack-cors'
+gem 'jwt'
 

@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_information: one
+  amount: 9.99
+
+two:
+  patient_information: two
+  amount: 9.99

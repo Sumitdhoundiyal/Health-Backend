@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :sessions, only: [:create, :destroy]
+      get 'dashboard-stats', to: 'dashboard#stats'
 
-      post '/login', to: 'sessions#create'
-      delete '/logout', to: 'sessions#destroy'
+
+      post '/signup', to: 'sessions#signup'
+      post '/login', to: 'sessions#login'
 
       namespace :admin do
         resources :appointment
